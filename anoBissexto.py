@@ -1,4 +1,9 @@
-a = int(input('Digite um ano qualquer: '))
+from datetime import date
 
-a400 = a % 400
-a4 = a % 4
+a = int(input('Digite um ano qualquer ou "0" para ver o atual: '))
+if a == 0:
+    a = date.today().year
+if a % 4 == 0 and a % 100 != 0 or a % 400 == 0:
+    print('O ano {} é bissexto'.format(a))
+else:
+    print('O ano {} não é bissexto'.format(a))
