@@ -3,16 +3,22 @@ from random import randint
 print('Bem vindo ao sistema de rng\n'
       'Você tem sorte?')
 try:
-    n = int(input('Digite um numero entre 1 e 7, e veja se vai acertar: '))
+    n = int(input('Digite um número de 1 a 6: '))
+    if 0 < n < 7:
+        x = randint(1, 6)
+        t = 0
 
-    if 0 < n < 8:
-        for i in range(7):
-            x = randint(1, 7)
-            print(f'numero usado: {n}; numero gerado aleatoriamente: {x}; tentativa: {i+1}')
-            if n == x:
-                print(f'Voce acertou um numero, na tentativa {i+1}')
+        while n != x:
+            t += 1
+            print(f'Você errou, tentativa: {t}')
+            n = int(input('Digite um número de 1 a 6: '))
+
+        else:
+            t += 1
+            print('Você acertou\n'
+                  'Na tentativa {}'.format(t))
 
     else:
-        print(emoji.emojize('Você digitou um numero diferente do pedido :crying_face:'))
+        print('Você digitou um valor númerico fora do intervalo')
 except ValueError:
-    print('Você digitou um valor invalido ')
+    print('Você digitou um valor invalido')
